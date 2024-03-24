@@ -62,6 +62,10 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
+.navbar .responsive-nav-menu a i {
+  text-decoration: none;
+  color: black;
+}
 
 .responsive-openmenu {
   position: fixed;

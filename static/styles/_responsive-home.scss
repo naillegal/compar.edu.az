@@ -1,0 +1,267 @@
+@media (max-width: 765px) {
+  #home-main-slider {
+    .slider {
+      .list {
+        .item {
+          .content {
+            h2 {
+              font-size: 60px;
+            }
+          }
+        }
+      }
+      .thumbnail {
+        overflow: auto;
+        justify-content: start;
+      }
+      .arrows {
+        top: 10%;
+      }
+    }
+  }
+  #why-us {
+    .why-us-none {
+      display: none;
+    }
+  }
+  #portfolio {
+    .portfolio-content {
+      .portfolio-box-text {
+        width: 95%;
+        margin: auto;
+        .portfolio-bottom {
+          p {
+            width: 100%;
+          }
+          a {
+            display: none;
+          }
+        }
+      }
+      width: 100%;
+      .portfolio-boxes {
+        display: none;
+      }
+    }
+    .portfolio-slider {
+      display: block;
+    }
+  }
+  #slider-student-review {
+    .slider-container {
+      .button-prev,
+      .button-next {
+        display: none;
+      }
+    }
+  }
+  #blog {
+    .first-main {
+      width: 95%;
+      margin: auto;
+    }
+    .blog-main {
+      .blog-name {
+        padding: 5px;
+      }
+
+      .underside {
+        left: 5%;
+        p {
+          width: 70%;
+        }
+      }
+
+      .blog-button {
+        right: 0%;
+      }
+    }
+  }
+  #graduates {
+    .graduates-first-content {
+      h2 {
+        font-size: 30px;
+      }
+      p {
+        width: 100%;
+      }
+    }
+    .graduates-main {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      .responsive-none {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 766px) and (max-width: 991px) {
+  #home-main-slider {
+    .slider {
+      .list {
+        .item {
+          .content {
+            h2 {
+              font-size: 60px;
+            }
+          }
+        }
+      }
+      .thumbnail {
+        overflow: auto;
+        justify-content: start;
+      }
+      .arrows {
+        top: 10%;
+      }
+    }
+  }
+  #why-us {
+    .why-us-none {
+      display: none;
+    }
+  }
+  #portfolio {
+    .portfolio-content {
+      .portfolio-box-text {
+        width: 95%;
+        margin: auto;
+        .portfolio-bottom {
+          p {
+            width: 100%;
+          }
+
+          a {
+            display: none;
+          }
+        }
+      }
+      width: 100%;
+      .portfolio-boxes {
+        display: none;
+      }
+    }
+    .portfolio-slider {
+      display: block;
+    }
+  }
+  #slider-student-review {
+    .slider-container {
+      .button-prev,
+      .button-next {
+        display: none;
+      }
+    }
+  }
+  #blog {
+    .blog-main {
+      .blog-name {
+        padding: 5px;
+      }
+      .underside {
+        left: 5%;
+        p {
+          width: 70%;
+        }
+      }
+      .blog-button {
+        right: 0%;
+      }
+    }
+  }
+  #graduates {
+    .graduates-first-content {
+      p {
+        width: 100%;
+      }
+    }
+    .graduates-main {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      .responsive-none {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1365px) {
+  #why-us {
+    .why-us-img-box {
+      .appeal-button {
+        font-size: 15px;
+      }
+    }
+  }
+  #graduates {
+    .graduates-main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  #why-us {
+    .why-us-img-box {
+      .appeal-button {
+        font-size: 20px;
+      }
+    }
+    h2 {
+      font-size: 40px;
+    }
+    .why-us-content-p {
+      font-size: 20px;
+    }
+    .why-us-icon-content {
+      .why-us-icon-content-h,
+      .why-us-icon-content-p {
+        font-size: 14px;
+      }
+    }
+  }
+  #graduates {
+    .graduates-main {
+      .student {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+  #why-us {
+    .why-us-img-box {
+      .appeal-button {
+        font-size: 22px;
+      }
+    }
+    h2 {
+      font-size: 50px;
+    }
+    .why-us-content-p {
+      font-size: 20px;
+    }
+    .why-us-icon-content {
+      .why-us-icon-content-h,
+      .why-us-icon-content-p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 2100px) {
+  #why-us {
+    .why-us-img-box {
+      .appeal-button {
+        font-size: 24px;
+      }
+    }
+  }
+}

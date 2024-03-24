@@ -1,0 +1,158 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>Haqqımızda - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %}
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Compar Academy veb-proqramlaşdırma, qrafik dizayn, veb dizayn, Microsoft Office, interyer dizayn ixtisasları üzrə peşəkarlaşmış tədris mərkəzidir.">
+  <meta property="og:title" content="Haqqımzıda - Compar Academy İxtisaslaşmış Tədris Mərkəzi" />
+  <meta property="og:description" content="Compar Academy veb-proqramlaşdırma, qrafik dizayn, veb dizayn, Microsoft Office, interyer dizayn ixtisasları üzrə peşəkarlaşmış tədris mərkəzidir." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{request.build_absolute_uri}}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+{% load teacher_tags %} {% get_teachers as teachers %}
+<section id="about-first">
+  <div class="about-first-main-box">
+    <img class="img-fluid" src="{% static "assets/about-first.png" %}" alt="" />
+    <div class="img-overlay"></div>
+    <div class="about-first-title">
+      <h1>Haqqımızda</h1>
+    </div>
+  </div>
+</section>
+<section id="about-counter">
+  <div class="container">
+    <div class="row row-gap-5">
+      <div class="col-12 col-lg-4">
+        <h3>Compar Academy</h3>
+        <div class="highlights">Highlights</div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="container-fluid">
+          <div class="row">
+            {% for statistic in about_statistics %}
+            <div class="col-6">
+              <h5>{{ statistic.title }}</h5>
+              <div data-val="{{ statistic.count }}" class="count">0</div>
+              <p class="counter-content">{{ statistic.description }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="our-goal">
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      <div class="col-12 col-md-12 col-lg-6 our-goal-none">
+        <div class="our-goal-img-box">
+          <img class="our-goal-img1" src="{% static "assets/our-goal-img1.png" %}" alt="" />
+          <img class="our-goal-img2" src="{% static "assets/our-goal-img2.png" %}" alt="" />
+          <img class="our-goal-img3" src="{% static "assets/our-goal-img3.png" %}" alt="" />
+          <img class="our-goal-img4" src="{% static "assets/our-goal-img4.png" %}" alt="" />
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-6 m-auto">
+        <h2>Məqsədimiz</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. Lorem Ipsum is simply dummy text of
+          the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown
+          printer took a galley of type and scrambled it to make a type specimen
+          book.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="our-advantages">
+  <h2>Üstünlüklərimiz</h2>
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon1"
+          src="{% static "assets/our-advantages-icon1.png" %}"
+          alt=""
+        />
+        <p>Texnoloji icma</p>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon2"
+          src="{% static "assets/our-advantages-icon2.png" %}"
+          alt=""
+        />
+        <p>Şəbəkələşmə</p>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon3"
+          src="{% static "assets/our-advantages-icon3.png" %}"
+          alt=""
+        />
+        <p>Rahat öyrənmə mühiti</p>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon4"
+          src="{% static "assets/our-advantages-icon4.png" %}"
+          alt=""
+        />
+        <p>Şəxsi portfolio</p>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon5"
+          src="{% static "assets/our-advantages-icon5.png" %}"
+          alt=""
+        />
+        <p>Texniki müsahibə dəstəyi</p>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <img
+          class="our-advantages-icon6"
+          src="{% static "assets/our-advantages-icon6.png" %}"
+          alt=""
+        />
+        <p>Texniki müsahibə dəstəyi</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="our-teachers">
+  <div class="d-flex justify-content-between">
+    <div class="our-teachers-first-content">
+      <h2>Müəllimlərimiz</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+        industry
+      </p>
+    </div>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for teacher in teachers %}
+      <div class="swiper-slide">
+          <img class="img-fluid" src="{{ teacher.image.url }}" alt="{{ teacher.full_name }}" />
+          <h6>{{ teacher.full_name }}</h6>
+          <p class="teacher-job">{{ teacher.job_title }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
+
+
+{% endblock main %}

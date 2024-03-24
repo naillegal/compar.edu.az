@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>Tədris metodikası - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Dərs keçmə metodikası bölməsi sizə ən yaxşı tədris təcrübələrini təqdim edir və fərqli müəllimlərin dərs metodikalarını öyrənməyə kömək edir.">
+  <meta property="og:title" content="Tədris metodikası - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Dərs keçmə metodikası bölməsi sizə ən yaxşı tədris təcrübələrini təqdim edir və fərqli müəllimlərin dərs metodikalarını öyrənməyə kömək edir." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{request.build_absolute_uri}}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section id="method-first">
+  <div class="method-first-main-box">
+    <img class="img-fluid" src="{% static "assets/method-img1.png" %}" alt="" />
+    <div class="img-overlay"></div>
+    <div class="method-first-title">
+      <h1>Tədris metodikası</h1>
+    </div>
+  </div>
+</section>
+<section id="method-explanation">
+  <div class="container-fluid method-container">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-6 order1">
+        <img src="{% static "assets/events2.png" %}" alt="" />
+      </div>
+      <div class="col-12 col-lg-6 order2">
+        <div class="method-explanation-content">
+          <h3>Lorem Ipsum is simply dummy</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid method-container">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-6 order2">
+        <div class="method-explanation-content">
+          <h3>Lorem Ipsum is simply dummy</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 order1">
+        <img src="{% static "assets/blog-detail-img2.png" %}" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid method-container">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-6 order1">
+        <img src="{% static "assets/method-img2.png" %}" alt="" />
+      </div>
+      <div class="col-12 col-lg-6 order2">
+        <div class="method-explanation-content">
+          <h3>Lorem Ipsum is simply dummy</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main %}

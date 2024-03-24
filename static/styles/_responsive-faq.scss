@@ -1,0 +1,43 @@
+@media (max-width: 765px) {
+  #faq-first {
+    .faq-first-main-box {
+      .faq-first-title {
+        bottom: -5%;
+        left: -3%;
+        h1 {
+          font-size: 35px;
+        }
+      }
+      .img-overlay {
+        width: 280px;
+        height: 110px;
+      }
+      &::before,
+      &::after {
+        inset: auto auto 0 280px;
+      }
+      &::after {
+        inset: auto auto 110px 0;
+        z-index: 2;
+      }
+    }
+  }
+  #questions{
+    .faq-open{
+      h6{
+        padding: 0px;
+      }
+    }
+    p{
+      padding: 0px;
+    }
+  }
+  #faq-form {
+    form {
+      input,
+      textarea {
+        width: 350px;
+      }
+    }
+  }
+}

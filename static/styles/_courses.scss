@@ -1,0 +1,321 @@
+#courses-first {
+  background-color: #f3f5ec;
+  .courses-first-container {
+    padding: 50px 20px;
+    .courses-first-content {
+      width: 90%;
+      margin: auto;
+      color: rgba(46, 46, 46, 1);
+      h1 {
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-size: 60px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .order1 {
+      position: relative;
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+      .img-overlay {
+        position: absolute;
+        inset: auto 0 0 auto;
+        width: 200px;
+        height: 150px;
+        background-color: #f3f5ec;
+        border-top-left-radius: 10px;
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        aspect-ratio: 1;
+        inset: auto 200px 0 auto;
+        border-bottom-right-radius: 50%;
+        background-color: transparent;
+        box-shadow: 5px 5px 0 5px #f3f5ec;
+        z-index: 2;
+      }
+      &::after {
+        inset: auto 12px 150px auto;
+        z-index: 2;
+      }
+      .courses-first-img-title {
+        position: absolute;
+        bottom: 2%;
+        right: 0;
+        h2 {
+          font-size: 60px;
+          font-weight: 700;
+        }
+        p {
+          font-size: 12px;
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+#changing-tabs {
+  .switch-tabs.loading {
+    opacity: 0.5;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .switch-tabs.loading::before,
+  .switch-tabs.loading::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid rgba(42, 36, 49, 1);
+    border-top-color: rgba(254, 77, 57, 1);
+    animation: loading 1s infinite linear;
+    z-index: 2;
+  }
+  .switch-tabs {
+    background-color: #f3f5ec;
+    .switcher {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      h5 {
+        padding: 0px 30px;
+        font-weight: 500;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        margin-bottom: 40px;
+      }
+      .active {
+        color: rgba(254, 77, 57, 1);
+        position: relative;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -5px;
+          width: 70%;
+          height: 2px;
+          background-color: rgba(254, 77, 57, 1);
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+    .tabs {
+      #why-this-science {
+        padding: 60px 0px;
+        .tabs-img-box {
+          img {
+            width: 95%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: brightness(80%);
+          }
+        }
+        h2 {
+          font-size: 30px;
+          font-weight: bolder;
+        }
+        .tabs-content-p {
+          font-size: 14px;
+        }
+        .tabs-icon-content {
+          margin: 10px 0 0 10px;
+          .tabs-content-h {
+            font-size: 15px;
+            font-weight: bolder;
+          }
+          .tabs-content-p {
+            font-size: 10px;
+            color: rgba(147, 147, 147, 1);
+          }
+        }
+      }
+      #syllabus {
+        background-color: #f9fbf4;
+        padding: 40px 0px;
+        .syllabus-info {
+          margin-top: 60px;
+          h3 {
+            font-weight: 700;
+            font-size: 30px;
+            margin-bottom: 20px;
+          }
+          span {
+            color: rgba(254, 77, 57, 1);
+            font-size: 16px;
+            font-weight: 600;
+          }
+          p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: rgba(46, 46, 46, 1);
+            width: 80%;
+          }
+        }
+        .syllabus-list-box {
+          border-radius: 10px;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-left: 8px solid #4056c7;
+          display: flex;
+          justify-content: flex-end;
+          flex-wrap: wrap;
+          padding: 20px;
+          .syllabus-list {
+            width: 100%;
+            font-weight: 500;
+            li {
+              padding: 2px 0px;
+            }
+          }
+          span {
+            color: rgba(254, 77, 57, 1);
+            font-size: 16px;
+          }
+        }
+      }
+      #tabs-teacher-info {
+        padding: 40px 0px;
+        h2 {
+          padding-bottom: 50px;
+          font-weight: 600;
+          color: rgba(42, 36, 49, 1);
+        }
+        h3 {
+          font-weight: 700;
+          font-size: 30px;
+          color: rgba(42, 36, 49, 1);
+        }
+        span {
+          color: rgba(254, 77, 57, 1);
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 30px;
+          display: inline-block;
+        }
+        p {
+          font-size: 14px;
+          color: rgba(46, 46, 46, 1);
+        }
+        .tab-teacher-img {
+          position: relative;
+          img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+          }
+          .tab-teacher-img-title {
+            position: absolute;
+            bottom: -2%;
+            left: 2%;
+            color: rgba(42, 36, 49, 1);
+            width: 300px;
+            height: 100px;
+            h4 {
+              font-size: 30px;
+              font-weight: 700;
+            }
+            p {
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    .uix-tab {
+      display: none;
+    }
+    .csharp-tab {
+      display: none;
+    }
+    .python-tab {
+      display: none;
+    }
+    .java-tab {
+      display: none;
+    }
+    .mernstack-tab {
+      display: none;
+    }
+    .flutter-tab {
+      display: none;
+    }
+  }
+}
+
+#courses {
+  padding: 100px 0px;
+  background-color: #f3f5ec;
+  .course-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: 0.3s ease-in-out;
+      filter: brightness(70%);
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .underside {
+      position: absolute;
+      bottom: 0%;
+      left: 3%;
+      color: white;
+      h3 {
+        a {
+          font-weight: bolder;
+          cursor: pointer;
+          text-decoration: none;
+          color: white;
+        }
+      }
+      p {
+        font-size: 12px;
+        width: 305px;
+      }
+    }
+    .course-button {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      cursor: pointer;
+      i {
+        background-color: white;
+        color: black;
+        padding: 8px 30px;
+        border-radius: 18px;
+        border: 1px solid rgba(42, 36, 49, 1);
+      }
+    }
+  }
+}

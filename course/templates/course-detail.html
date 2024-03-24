@@ -1,0 +1,156 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Tədris paketləri - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Kurslar və proqramlar bölməsi sizə Compar Academy-nin təklif etdiyi ən son kurslar, proqramlar və təlimlər haqqında məlumat təqdim edir.">
+  <meta property="og:title" content="Kurslar və Proqramlar - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Kurslar və proqramlar bölməsi sizə Compar Academy-nin təklif etdiyi ən son kurslar, proqramlar və təlimlər haqqında məlumat təqdim edir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %}
+{% block main %}
+<section id="changing-tabs">
+  <div class="switch-tabs">
+    <div class="tabs">
+      {% for opportunity in course_opportunities %}
+      <section id="why-this-science">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-lg-6 tabs-none">
+              <div class="tabs-img-box">
+                <img
+                  src="{{ opportunity.image.url }}"
+                  alt="{{ opportunity.title }}"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 m-auto">
+              <h2>{{ opportunity.title }}</h2>
+              <p class="tabs-content-p">{{ opportunity.description }}</p>
+              <div class="container-fluid">
+                <div class="row row-gap-5 my-5">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="d-flex align-items-center">
+                      <img
+                        style="width: 34px; height: 34px"
+                        src="{% static "assets/why-us-icon1.png" %}"
+                        alt=""
+                      />
+                      <div class="tabs-icon-content">
+                        <div class="tabs-content-h">Təcrübə programı</div>
+                        <div class="tabs-content-p">
+                          Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="d-flex align-items-center">
+                      <img
+                        style="width: 34px; height: 34px"
+                        src="{% static "assets/why-us-icon2.png" %}"
+                        alt="why-us-icon2"
+                      />
+                      <div class="tabs-icon-content">
+                        <div class="tabs-content-h">Xaricdə praktika</div>
+                        <div class="tabs-content-p">
+                          Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="d-flex align-items-center">
+                      <img
+                        style="width: 34px; height: 34px"
+                        src="{% static "assets/why-us-icon3.png" %}"
+                        alt="why-us-icon3"
+                      />
+                      <div class="tabs-icon-content">
+                        <div class="tabs-content-h">Mentor sistemi</div>
+                        <div class="tabs-content-p">
+                          Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="d-flex align-items-center">
+                      <img
+                        style="width: 34px; height: 34px"
+                        src="{% static "assets/why-us-icon4.png" %}"
+                        alt="why-us-icon4"
+                      />
+                      <div class="tabs-icon-content">
+                        <div class="tabs-content-h">Karyera dəstəyi</div>
+                        <div class="tabs-content-p">
+                          Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endfor %}
+
+      <section id="syllabus">
+        <div class="container">
+          <div class="row row-gap-5">
+            <div class="col-12 col-lg-8">
+              <div class="syllabus-info">
+                <h3>Tədris proqramı</h3>
+                <span>Bu proqramda nələr öyrənəcəksiniz?</span>
+                <p>{{ course.description }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 m-auto">
+              <div class="syllabus-list-box">
+                <ul class="syllabus-list">
+                  {% for syllabus in course_syllabi %} {% for lesson in syllabus.lesson.all %}
+                  <li>{{ lesson.name }}</li>
+                  {% endfor %}
+                </ul>
+                <span>{{ syllabus.duration }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="tabs-teacher-info">
+        <h2 class="text-center">Müəllimlərimiz kimdir?</h2>
+        <div class="container">
+          <div class="row row-gap-5">
+            {% for teacher in course_teachers %}
+            <div class="col-12 col-lg-6">
+              <h3>{{ teacher.full_name }}</h3>
+              <span>{{ teacher.job_title }}</span>
+              <p>{{ teacher.description }}</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="tab-teacher-img">
+                <img
+                  src="{{ teacher.image.url }}"
+                  alt="{{ teacher.full_name }}"
+                />
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+{% endblock main %}

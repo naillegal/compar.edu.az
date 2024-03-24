@@ -1,0 +1,25 @@
+@media (max-width: 765px) {
+    #events-first {
+      .events-first-main-box {
+        .events-first-title {
+          bottom: -5%;
+          left: -3%;
+          h1 {
+            font-size: 25px;
+          }
+        }
+        .img-overlay {
+          width: 250px;
+          height: 50px;
+        }
+        &::before,
+        &::after {
+          inset: auto auto 0 250px;
+        }
+        &::after {
+          inset: auto auto 50px 0;
+          z-index: 2;
+        }
+      }
+    }
+  }

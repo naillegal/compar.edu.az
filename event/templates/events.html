@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Xəbərlər & Tədbirlər - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Tədbirlər və xəbərlər bölməsi sizə Compar Academy-nin ən son fəaliyyətləri və aktual xəbərləri barədə məlumat təqdim edir.">
+  <meta property="og:title" content="Xəbərlər & Tədbirlər  - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Tədbirlər və xəbərlər bölməsi sizə Compar Academy-nin ən son fəaliyyətləri və aktual xəbərləri barədə məlumat təqdim edir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %}
+
+{% block main %}
+<section id="events-first">
+  <div class="events-first-main-box">
+    <img class="img-fluid" src="{% static "assets/events-first.png" %}" alt=""
+    />
+    <div class="img-overlay"></div>
+    <div class="events-first-title">
+      <h1>Xəbər & Tədbirlər</h1>
+    </div>
+  </div>
+</section>
+<section id="news-events-switch">
+  <div class="d-flex justify-content-center switcher">
+    <h5 class="active newstoggle">Xəbərlər</h5>
+    <h5 class="eventstoggle">Tədbirlər</h5>
+  </div>
+  <div class="news container-fluid">
+    <div class="row">
+      {% for event in events %} {% if event.category == 'xəbər' %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="main-box">
+          <img class="img-fluid" src="{{ event.image.url }}" alt="" />
+          <span>{{ event.category|title }}</span>
+          <h6>{{ event.title }}</h6>
+          <p class="box-content">{{ event.description|slice:":120" }}...</p>
+          <div class="d-flex">
+            <p class="time">{{ event.created }}</p>
+            <a href="{% url 'event:event-detail' pk=event.pk slug=event.slug %}"
+              >ətraflı</a
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+  <div class="events container-fluid">
+    <div class="row">
+      {% for event in events %} {% if event.category == 'tədbir' %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="main-box">
+          <img class="img-fluid" src="{{ event.image.url }}" alt="" />
+          <span>{{ event.category|title  }}</span>
+          <h6>{{ event.title }}</h6>
+          <p class="box-content">{{ event.description|slice:":120" }}</p>
+          <div class="d-flex">
+            <p class="time">{{ event.created }}</p>
+            <a href="{% url 'event:event-detail' pk=event.pk slug=event.slug %}"
+              >ətraflı</a
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock main %}

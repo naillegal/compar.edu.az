@@ -1,0 +1,36 @@
+@media (max-width: 992px) {
+  #blog-detail-first {
+    .blog-detail-first-main-box {
+      .blog-detail-first-title {
+        bottom: -5%;
+        left: -3%;
+        h1 {
+          font-size: 22px;
+        }
+      }
+      .img-overlay {
+        width: 300px;
+        height: 50px;
+      }
+      &::before,
+      &::after {
+        inset: auto auto 0 300px;
+      }
+      &::after {
+        inset: auto auto 50px 0;
+        z-index: 2;
+      }
+    }
+  }
+  #full-sided {
+    p{
+      width: 100%;
+    }
+    img {
+      height: 300px;
+    }
+    .full-sided-content {
+        margin-top: 20px;
+      }
+  }
+}

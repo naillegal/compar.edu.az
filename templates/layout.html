@@ -1,0 +1,213 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Proqramlaşdırma, proqramlaşdırma dərsləri, proqramlaşdırma kursları, dizayn kursları, qrafik dizayn kursu, veb dizayn kursu, ui ux kursu, interyer dizayn, interyer dizayn kursu, ofis proqramları, Frontend dərsləri, Backend dərsləri, Full-stack dərsləri, kodlaşdırma dərsləri">
+    <meta name="robots" content="index, follow">
+    {% block meta_tags %}{% endblock meta_tags %}
+    {% block title %}{% endblock title %}
+    <title>Compar Academy</title>
+    <link rel="icon" href="{% static "assets/head-favicon.png" %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static "vendors/bootstrap.min.css" %}" />
+    <link rel="stylesheet" href="{% static "styles/style.css" %}" />
+  </head>
+  <body>
+    <header>
+      <div class="topside">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-6">
+              <div class="streetname">Shamil Azizbeyov street</div>
+            </div>
+            <div class="col-6">
+              <div class="topside-icons">
+                <a href="https://www.instagram.com/compar_academy/">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/comparacademy/">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://az.linkedin.com/company/compar-academy">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="container-fluid">
+          <div class="logo">
+            <a href="{% url 'promotion:home' %}">
+              <img src="{% static "assets/compar-logo-header.png" %}" alt="" />
+            </a>
+          </div>
+          <div class="responsive-nav-menu">
+            <i style="padding-right: 20px" class="fa-solid fa-phone-volume"></i>
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="nav-menu">
+            <ul class="list-unstyled d-flex">
+              <li><a href="{% url 'promotion:about' %}">Haqqımızda</a></li>
+              <li class="courses">
+                <a href="{% url 'course:courses' %}">Kurslar</a>
+              </li>
+              <li><a href="{% url 'event:events' %}">Tədbirlər</a></li>
+              <li><a href="{% url 'promotion:faq' %}">FAQ</a></li>
+              <li><a href="{% url 'promotion:contact' %}">Əlaqə</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="responsive-openmenu">
+        <ul class="list-unstyled outside-ul">
+          <li>
+            <div class="isopenmenu">
+              <a href="{% url 'promotion:about' %}">Haqqımızda</a>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="openmenu-divider-outside"></div>
+            <ul class="list-unstyled inside-ul">
+              <li><a href="{% url 'promotion:method' %}">Tədris metodikası</a></li>
+              <div class="openmenu-divider-inside"></div>
+              <li><a href="{% url 'promotion:graduates' %}">Məzunlarımız</a></li>
+              <div class="openmenu-divider-inside"></div>
+            </ul>
+          </li>
+          <li>
+            <div class="isopenmenu">
+              <a href="{% url 'course:courses' %}">Kurslar</a>
+            </div>
+            <div class="openmenu-divider-outside"></div>
+          </li>
+          <li>
+            <div class="isopenmenu">
+              <a href="{% url 'event:events' %}">Tədbirlər</a>
+            </div>
+            <div class="openmenu-divider-outside"></div>
+          </li>
+          <li><a href="{% url 'blog:blog-list' %}">Blog</a></li>
+          <div class="openmenu-divider-outside"></div>
+          <li><a href="{% url 'promotion:faq' %}">FAQ</a></li>
+          <div class="openmenu-divider-outside"></div>
+          <li>
+            <div class="isopenmenu">
+              <a href="{% url 'promotion:contact' %}">Əlaqə</a>
+            </div>
+            <div class="openmenu-divider-outside"></div>
+          </li>
+        </ul>
+        <div class="responsive-openmenu-icons">
+          <a href="https://www.instagram.com/compar_academy/">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/comparacademy/">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://az.linkedin.com/company/compar-academy">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    {% block main %}{% endblock main %}
+    <footer>
+      <div class="footer">
+        <div class="container-fluid main">
+          <div class="row row-gap-4">
+            <div class="col-sm-12 col-lg-2 order4">
+              <div class="logo">
+                <a href="{% url 'promotion:home' %}">
+                  <img src="{% static "assets/compar-logo-footer.png" %}" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 order3">
+              <div class="footer-content">
+                <div>
+                  It is a long established fact that a reader will be<br />distracted
+                  by the readable content of a page when<br />looking at its
+                  layout
+                </div>
+                <div class="contentsecond">
+                  4517 Washington Ave. Manchester, Kentucky 39495
+                </div>
+                <span>(239) 555-0108</span><span>(303) 555-0105</span>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-2 order1">
+              <div class="ultitle">Compar Academy</div>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'promotion:about' %}">Haqqımızda</a></li>
+                <li><a href="{% url 'event:events' %}">Tədbirlər</a></li>
+                <li><a href="{% url 'promotion:faq' %}">FAQ</a></li>
+                <li><a href="{% url 'promotion:graduates' %}">Məzunlar</a></li>
+                <li><a href="{% url 'promotion:contact' %}">Əlaqə</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-12 col-lg-2 order2">
+              <div class="ultitle">Kurslarımız</div>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'course:courses' %}">Dizayn</a></li>
+                <li><a href="{% url 'course:courses' %}">Proqramlaşdırma</a></li> 
+                <li><a href="{% url 'course:courses' %}">SMM</a></li>
+                <li><a href="{% url 'course:courses' %}">İngilis dili</a></li>
+                <li><a href="{% url 'course:courses' %}">Ofis proqramları</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="copyright">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-6">
+                <div id="copyright" class="copyrightcontent"></div>
+              </div>
+              <div class="col-6">
+                <div class="footer-icons">
+                  <a href="https://www.instagram.com/compar_academy/">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="https://www.facebook.com/comparacademy/">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://az.linkedin.com/company/compar-academy">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% block scripts %}{% endblock scripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/about.js" %}"></script>
+    <script src="{% static "js/events.js" %}"></script>
+    <script src="{% static "js/faq.js" %}"></script>
+  </body>
+</html>

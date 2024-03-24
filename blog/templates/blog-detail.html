@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Blog - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %} {% block meta_tags %} {% endblock meta_tags %} {% block main %}
+<section id="blog-detail-first">
+  <div class="blog-detail-first-main-box">
+    <img class="img-fluid" src="{% static "assets/blog-detail-img1.png" %}"
+    alt="" />
+    <div class="img-overlay"></div>
+    <div class="blog-detail-first-title">
+      <h1>Blogun ətraflı detalları</h1>
+    </div>
+  </div>
+</section>
+<section id="full-sided">
+  <div class="container-fluid">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-6">
+        <img src="{{ article.main_image.url }}" alt="" />
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="full-sided-content">{{ article.content | safe }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="blog-images">
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      {% for image in article.articleimage_set.all %}
+      <div class="col-12 col-lg-6">
+        <img src="{{ image.image_file.url }}" alt="" />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock main %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Xəbərlər & Tədbirlər - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Tədbirlər və xəbərlər bölməsi sizə Compar Academy-nin ən son fəaliyyətləri və aktual xəbərləri barədə məlumat təqdim edir.">
+  <meta property="og:title" content="Xəbərlər & Tədbirlər  - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Tədbirlər və xəbərlər bölməsi sizə Compar Academy-nin ən son fəaliyyətləri və aktual xəbərləri barədə məlumat təqdim edir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %}
+{% block main %}
+<section id="events-detail-main">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6 order2">
+        <div class="d-flex">
+          <span>{{ event.category|title }}</span>
+          <p class="time">{{ event.created }}</p>
+        </div>
+        <h5>{{ event.title }}</h5>
+        <p class="content">{{ event.description }}</p>
+      </div>
+      <div class="col-12 col-lg-6 order1">
+        <img src="{{ event.image.url }}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main %}

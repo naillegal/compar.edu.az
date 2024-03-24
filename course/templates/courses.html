@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Tədris paketləri - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Kurslar və proqramlar bölməsi sizə Compar Academy-nin təklif etdiyi ən son kurslar, proqramlar və təlimlər haqqında məlumat təqdim edir.">
+  <meta property="og:title" content="Kurslar və Proqramlar - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Kurslar və proqramlar bölməsi sizə Compar Academy-nin təklif etdiyi ən son kurslar, proqramlar və təlimlər haqqında məlumat təqdim edir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %}
+
+{% block main %}
+<section id="courses-first">
+  <div class="container-fluid courses-first-container">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-lg-6 order2">
+        <div class="courses-first-content">
+          <h1>Tədris paketləri</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 order1">
+        <img src="{% static "assets/about-first.png" %}" alt="" />
+        <div class="img-overlay"></div>
+        <div class="courses-first-img-title">
+          <h2>300+</h2>
+          <p>Kursumuzun ümumi tələbə sayı</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="courses">
+  <div class="container-fluid">
+    <div class="row row-gap-5">
+      {% for course in courses %}
+      <div class="col-12 col-lg-6">
+        <div class="course-box">
+          <img src="{{ course.image.url }}" alt="{{ course.title }}" />
+          <div class="underside">
+            <h3><a href="{% url 'course:course-detail' pk=course.pk slug=course.slug %}">{{ course.title }}</a></h3>
+            <p>
+                {{ course.description|slice:":95" }}...
+            </p>
+          </div>
+          <div class="course-button">
+            <a href="{% url 'course:course-detail' pk=course.pk slug=course.slug %}"
+              ><i class="fa-solid fa-angle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock main %}

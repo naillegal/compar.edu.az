@@ -1,0 +1,42 @@
+@media (max-width: 992px) {
+  #method-first {
+    .method-first-main-box {
+      .method-first-title {
+        bottom: -5%;
+        left: -3%;
+        h1 {
+          font-size: 30px;
+        }
+      }
+      .img-overlay {
+        width: 300px;
+        height: 60px;
+      }
+      &::before,
+      &::after {
+        inset: auto auto 0 300px;
+      }
+      &::after {
+        inset: auto auto 60px 0;
+        z-index: 2;
+      }
+    }
+  }
+  #method-explanation {
+    .method-container {
+      .order1 {
+        order: 1;
+      }
+      .order2 {
+        order: 2;
+      }
+      img {
+        height: 300px;
+      }
+      .method-explanation-content {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+}

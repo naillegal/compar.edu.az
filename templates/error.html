@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>Səhifə tapılmadı</title>
+{% endblock title %}
+{% load static %}
+{% block main %}
+<body>
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Səhifə tapılmadı</h2>
+    <p>Üzr istəyirik, axtardığınız səhifə mövcud deyil.</p>
+    <a href="{% url 'promotion:home' %}" class="btn">Ana səhifəyə keçin</a>
+  </div>
+</body>
+</html>
+{% endblock main %}

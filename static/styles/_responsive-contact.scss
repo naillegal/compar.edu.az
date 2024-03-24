@@ -1,0 +1,39 @@
+@media (max-width: 765px) {
+  #contact-first {
+    .contact-first-main-box {
+      .contact-first-title {
+        bottom: -5%;
+        left: -3%;
+        h1 {
+          font-size: 35px;
+        }
+      }
+      .img-overlay {
+        width: 140px;
+        height: 60px;
+      }
+      &::before,
+      &::after {
+        inset: auto auto 0 140px;
+      }
+      &::after {
+        inset: auto auto 60px 0;
+        z-index: 2;
+      }
+    }
+  }
+  #contact-us {
+    .contact-us-content{
+        text-align: center;
+        p{
+            width: 100%;
+        }
+    }
+    form {
+      input,
+      textarea {
+        width: 350px;
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+#about-first {
+  background-color: #f3f5ec;
+  padding-top: 20px;
+  .about-first-main-box {
+    position: relative;
+    height: 50vh;
+    width: 95%;
+    margin: auto;
+    img {
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+    .img-overlay {
+      position: absolute;
+      inset: auto 0 0 auto;
+      width: 360px;
+      height: 80px;
+      background-color: #f3f5ec;
+      border-top-left-radius: 10px;
+    }
+    .about-first-title {
+      position: absolute;
+      bottom: -5%;
+      right: 0%;
+      h1 {
+        color: white;
+        font-weight: 700;
+        font-size: 50px;
+        color: rgba(42, 36, 49, 1);
+        padding: 20px;
+        font-weight: 700;
+      }
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      aspect-ratio: 1;
+      inset: auto 360px 0 auto;
+      border-bottom-right-radius: 50%;
+      background-color: transparent;
+      box-shadow: 5px 5px 0 5px #f3f5ec;
+      z-index: 2;
+    }
+    &::after {
+      inset: auto 0 80px auto;
+      z-index: 2;
+    }
+  }
+}
+
+#about-counter {
+  background-color: #f3f5ec;
+  padding: 100px 0px;
+  h3 {
+    font-weight: 700;
+  }
+  .highlights {
+    color: rgba(254, 77, 57, 1);
+    font-weight: 700;
+    font-size: 30px;
+  }
+  h5 {
+    font-weight: 600;
+  }
+  .count {
+    color: rgba(254, 77, 57, 1);
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .counter-content {
+    font-size: 12px;
+    color: rgba(147, 147, 147, 1);
+  }
+}
+
+#our-goal {
+  background-color: #f9fbf4;
+  padding: 80px 0px;
+  .our-goal-img-box {
+    position: relative;
+    .our-goal-img1 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 22%;
+    }
+    .our-goal-img2 {
+      width: 90%;
+    }
+    .our-goal-img3 {
+      height: 20%;
+      position: absolute;
+      right: 10%;
+      top: -8%;
+    }
+    .our-goal-img4 {
+      height: 22%;
+      position: absolute;
+      right: 10%;
+      bottom: 0;
+    }
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+  p {
+    font-size: 14px;
+    width: 95%;
+  }
+}
+
+#our-advantages {
+  background-color: #f3f5ec;
+  padding: 80px 0px;
+  h2 {
+    font-weight: 700;
+    padding: 0 0 60px 20px;
+  }
+  img {
+    border-radius: 15px;
+    padding: 12px;
+    display: block;
+    margin: auto;
+  }
+  p {
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .our-advantages-icon1 {
+    background-color: #d1b9e8;
+  }
+  .our-advantages-icon2 {
+    background-color: #f6e3a6;
+  }
+  .our-advantages-icon3 {
+    background-color: #bde4cf;
+  }
+  .our-advantages-icon4 {
+    background-color: #bdc5e1;
+  }
+  .our-advantages-icon5 {
+    background-color: #f6c3b6;
+  }
+  .our-advantages-icon6 {
+    background-color: #cbdae8;
+  }
+}
+
+#our-teachers {
+  background-color: #f3f5ec;
+  padding: 80px 20px;
+  .our-teachers-first-content {
+    margin-bottom: 60px;
+
+    h2 {
+      font-weight: bolder;
+      color: rgba(42, 36, 49, 1);
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 14px;
+      color: rgba(42, 36, 49, 1);
+      margin-top: 20px;
+    }
+  }
+
+  .swiper-container {
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+    .swiper-slide {
+      width: 100%;
+      padding: 0 10px;
+      img {
+        width: 95%;
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      h6 {
+        font-weight: 600;
+        padding-top: 15px;
+        text-align: center;
+      }
+
+      .teacher-job {
+        color: rgba(68, 68, 68, 1);
+        text-align: center;
+      }
+    }
+    .swiper-scrollbar {
+      width: 50%;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+}

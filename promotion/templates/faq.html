@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>FAQ - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %}
+{% load static %} 
+{% block meta_tags %}
+  <meta name="description" content="Sualınız var? Tez-tez verilən suallar bölməsi sizə yardımçı ola bilər.">
+  <meta property="og:title" content="FAQ - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Sualınız var? Tez-tez verilən suallar bölməsi sizə yardımçı ola bilər." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{request.build_absolute_uri}}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section id="faq-first">
+  <div class="faq-first-main-box">
+    <img class="img-fluid" src="{% static "assets/faq-first.png" %}" alt="" />
+    <div class="img-overlay"></div>
+    <div class="faq-first-title">
+      <h1>Ən çox verilən<br />suallar</h1>
+    </div>
+  </div>
+</section>
+<section id="questions">
+  <div class="container-fluid">
+    <div class="row row-gap-5">
+      {% for faq in faqs %}
+      <div class="col-12 col-lg-6">
+        <div class="d-flex justify-content-center align-items-center faq-open">
+          <h6>
+            {{ faq.question }}
+          </h6>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <p>
+          {{ faq.answer }}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="faq-form">
+  <form id="contactForm" method="POST" action="{% url 'promotion:appointment' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Ad, Soyad" required />
+    <input type="text" name="contact" placeholder="Email və ya Telefon" required />
+    <input type="text" name="subject" placeholder="Mövzu" required />
+    <textarea name="message" placeholder="Mesaj" cols="30" rows="10" required></textarea>
+    <p style="color:green; font-size:20px; {% if request.GET.success == 'true' %}display:block;{% else %}display:none;{% endif %}">Form uğurla göndərildi</p>
+    <p style="color:red; font-size:20px; {% if request.GET.success == 'false' %}display:block;{% else %}display:none;{% endif %}">Zəhmət olmasa formu düzgün daxil edin</p>
+    <button class="btn compar-gradient-button g-recaptcha" data-sitekey="6Le34x0iAAAAABD4mQucCFf2lwhLKYL40j9eEqWx" data-callback='onSubmit' data-action='submit'>Submit</button>
+  </form>
+</section>
+
+{% endblock main %}
+
+{% block scripts %}
+    <script src="{% static 'customs/contact/contact.min.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementById("contactForm").submit();
+        }
+      </script>
+{% endblock scripts %}

@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Blog - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Proqramlaşdırma, dizayn və digər texnoloji sahələrlə bağlı maraqlı məqalələr, rəqəmsal dünyadan ən son xəbərlər oxumaq üçün keçid edə bilərsiniz.">
+  <meta property="og:title" content="Blog  - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Proqramlaşdırma, dizayn və digər texnoloji sahələrlə bağlı maraqlı məqalələr, rəqəmsal dünyadan ən son xəbərlər oxumaq üçün keçid edə bilərsiniz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %}
+{% block main %}
+<section id="blog-first">
+  <div class="blog-first-main-box">
+    <img class="img-fluid" src="{% static "assets/faq-first.png" %}" alt="" />
+    <div class="img-overlay"></div>
+    <div class="blog-first-title">
+      <h1>Bloglar</h1>
+    </div>
+  </div>
+</section>
+<section id="blogs">
+  <div class="container-fluid tags-container">
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-12 col-lg-6">
+        <div class="blog-main">
+          <img class="bigger-img" src="{{ article.get_image }}" alt="" />
+          <div class="blog-name asset-tag">
+            {% for tag in article.tags.all %}
+              {{ tag.title }}
+            {% endfor %}
+          </div>
+          <div class="underside">
+            <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+            <p>{{ article.description }}</p>
+          </div>
+          <div class="blog-button">
+            <a href="{{ article.get_absolute_url }}"><i class="fa-solid fa-angle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="section-pagination">
+  <div class="d-flex justify-content-center projects-pagination">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if is_paginated %}
+          {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo;&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+              <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">&raquo;&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</section>
+{% endblock main %}

@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>Məzunlarımız - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %} 
+{% load static %}
+{% block meta_tags %}
+  <meta name="description" content="Məzunlar bölməsi sizə təcrübəli tələbələrimizin həyat yolu və karyerası haqqında məlumatlar təqdim edir.">
+  <meta property="og:title" content="Məzunlarımız - Compar Academy İxtisaslaşmış Tədris Mərkəziniz" />
+  <meta property="og:description" content="Məzunlar bölməsi sizə təcrübəli tələbələrimizin həyat yolu və karyerası haqqında məlumatlar təqdim edir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{request.build_absolute_uri}}" />
+  <meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<section id="graduates-first">
+  <div class="graduates-first-main-box">
+    <img class="img-fluid" src="{% static "assets/method-img1.png" %}" alt="" />
+    <div class="img-overlay"></div>
+    <div class="graduates-first-title">
+      <h1>Məzunlarımız</h1>
+    </div>
+  </div>
+</section>
+<section id="graduates-info">
+  <div class="container-fluid">
+    <div class="graduates-main">
+      {% for alumni in alumnies %}
+      <div class="student">
+        <img
+          src="{{ alumni.profile_picture.url }}"
+          alt="{{ alumni.full_name }}"
+        />
+        <div class="student-info">
+          <div class="student-name">{{ alumni.full_name }}</div>
+          <div class="student-job">{{ alumni.job_title }}</div>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="graduates-portfolio">
+  <div class="d-flex justify-content-between">
+    <div class="graduates-portfolio-first-content">
+      <h2>Tələbələrin işləri</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+        industry
+      </p>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      {% for project in student_projects %}
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="main-box">
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+          <div class="tags d-flex">
+            {% for tag in project.tags.all %}
+            <div class="colorful-tags asset-tag">{{ tag.title }}</div>
+            {% endfor %}
+          </div>
+          <div class="portfolio-content">
+            <div class="title">{{ project.title }}</div>
+          </div>
+          <a href="{{ project.project_url }}">
+            <div class="portfolio-btn d-flex align-items-center">
+              See the project
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="section-pagination">
+  <div class="d-flex justify-content-center projects-pagination">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if is_paginated %}
+          {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo;&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+              <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">&raquo;&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</section>
+{% endblock main %}

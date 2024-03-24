@@ -1,0 +1,360 @@
+{% extends 'layout.html' %}
+{% block title %}
+  <title>Ana Səhifə - Compar Academy İxtisaslaşmış Tədris Mərkəzi</title>
+{% endblock title %}
+{% load static %}
+{% block meta_tags %}
+<meta name="description" content="Məqsədimiz tədrisini etdiyimiz sahələrə marağı olan insanlara motivasiya vermək, düzgün istiqamətləndirmək və gələcəklərinə müsbət təsir göstərməkdir.">
+<meta property="og:title" content="Ana Səhifə - Compar Academy İxtisaslaşmış Tədris Mərkəzi" />
+<meta property="og:description" content="Məqsədimiz tədrisini etdiyimiz sahələrə marağı olan insanlara motivasiya vermək, düzgün istiqamətləndirmək və gələcəklərinə müsbət təsir göstərməkdir." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/compar-logo-header.png" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+{% load article_tags %} {% get_articles as articles %}
+{% load course_tags %} {% get_courses as courses %}
+<section id="home-main-slider">
+  <div class="slider">
+    <div class="list">
+      {% for slider in sliders %}
+      <div class="item {% if forloop.first %}active{% endif %}">
+        <img src="{{ slider.image.url }}" />
+        <div class="content">
+          <p>{{ slider.headline }}</p>
+          <h2>{{ slider.title }}</h2>
+          <p>{{ slider.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="arrows">
+      <button id="prev"><</button>
+      <button id="next">></button>
+    </div>
+    <div class="thumbnail">
+      {% for slider in sliders %}
+      <div class="item {% if forloop.first %}active{% endif %}">
+        <img src="{{ slider.image.url }}" />
+        <div class="content">{{ slider.title }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="education">
+  <div class="education-first-content">
+    <h2>Tədris sahələrimiz</h2>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+      industry
+    </p>
+  </div>
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      <div class="slider-container">
+        <div class="swiper mySwiper2">
+          <div class="swiper-wrapper">
+            {% for course in courses %}
+            <div class="swiper-slide">
+              <div class="img-box">
+                <img src="{{ course.image.url }}" alt="{{ course.title }}" />
+                <div class="img-overlay"></div>
+                <div class="img-button2">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+              <div class="education-content">
+                <a href="{% url 'course:course-detail' pk=course.pk slug=course.slug %}">{{ course.title }}</a>
+                <p>{{ course.description|slice:":60"}}...</p>
+                <div class="education-tags">
+                  {% for tag in course.tags.all %}
+                  <div class="colorful-tags java-tag">{{ tag.title }}</div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="button-prev">
+          <i class="fa-solid fa-arrow-left-long"></i>
+        </div>
+        <div class="button-next">
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="why-us">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-6 why-us-none">
+        <div class="why-us-img-box">
+          <img class="why-us-img1" src="{% static "assets/why-us-img1.png" %}" alt="" />
+          <img class="why-us-img2" src="{% static "assets/why-us-img2.png" %}" alt="" />
+          <img class="why-us-img3" src="{% static "assets/why-us-img3.png" %}" alt="" />
+          <div class="appeal-button"><a href="{% url 'promotion:contact' %}">İndi müraciət et</a></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-6 m-auto">
+        <h2>Niyə BİZ?</h2>
+        <p class="why-us-content-p">
+          Compar Academy veb-proqramlaşdırma, qrafik dizayn, veb dizayn,
+          Microsoft Office, interyer dizayn kimi yüksək kompüter ixtisasları
+          üzrə peşəkarlaşmış tədris mərkəzidir.
+        </p>
+        <div class="container-fluid">
+          <div class="row row-gap-5">
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="d-flex align-items-center">
+                <img
+                  style="width: 34px; height: 34px"
+                  src="{% static "assets/why-us-icon1.png" %}"
+                  alt="why-us-icon1"
+                />
+                <div class="why-us-icon-content">
+                  <div class="why-us-icon-content-h">Təcrübə programı</div>
+                  <div class="why-us-icon-content-p">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="d-flex align-items-center">
+                <img
+                  style="width: 34px; height: 34px"
+                  src="{% static "assets/why-us-icon2.png" %}"
+                  alt="why-us-icon2"
+                />
+                <div class="why-us-icon-content">
+                  <div class="why-us-icon-content-h">Xaricdə praktika</div>
+                  <div class="why-us-icon-content-p">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="d-flex align-items-center">
+                <img
+                  style="width: 34px; height: 34px"
+                  src="{% static "assets/why-us-icon3.png" %}"
+                  alt="why-us-icon3"
+                />
+                <div class="why-us-icon-content">
+                  <div class="why-us-icon-content-h">Mentor sistemi</div>
+                  <div class="why-us-icon-content-p">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="d-flex align-items-center">
+                <img
+                  style="width: 34px; height: 34px"
+                  src="{% static "assets/why-us-icon4.png" %}"
+                  alt="why-us-icon4"
+                />
+                <div class="why-us-icon-content">
+                  <div class="why-us-icon-content-h">Karyera dəstəyi</div>
+                  <div class="why-us-icon-content-p">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="portfolio">
+  <div class="portfolio-content">
+    <div class="d-flex justify-content-between">
+      <div class="portfolio-first-content">
+        <h2>Tələbələrin işləri</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+          industry
+        </p>
+      </div>
+      <div class="portfolio-button">
+        <a href="{% url 'promotion:graduates' %}">hamısı</a>
+      </div>
+    </div>
+    <div class="portfolio-boxes">
+      {% for project in student_projects|slice:"0:3" %}
+        <div class="portfolio-box">
+          <div class="portfolio-box-main">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+            <div class="portfolio-colorful-tags d-flex">
+                {% for tag in project.tags.all %}
+                    <div class="asset-tag colorful-tags">{{ tag.title }}</div>
+                {% endfor %}
+            </div>
+            <div class="portfolio-content">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+            </div>
+            <a href="{{ project.project_url }}">
+                <div class="portfolio-btn d-flex align-items-center">
+                    See the project
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+            </div>
+          </div>
+          {% endfor %}
+    </div>
+  </div>
+  <div class="portfolio-slider">
+    <div class="swiper mySwiper3">
+      <div class="swiper-wrapper">
+        {% for project in student_projects|slice:"0:3" %}
+        <div class="swiper-slide">
+          <div class="portfolio-slider-box">
+            <div class="portfolio-box-main">
+              <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+              <div class="portfolio-colorful-tags d-flex">
+                {% for tag in project.tags.all %}
+                <div class="asset-tag colorful-tags">{{ tag.title }}</div>
+                {% endfor %}
+              </div>
+              <div class="portfolio-content">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+              </div>
+              <a href="{{ project.project_url }}">
+                <div class="portfolio-btn d-flex align-items-center">
+                    See the project
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</section>
+<section id="slider-student-review">
+  <div class="student-review-title">Tələbələrimizin rəyləri</div>
+  <div class="slider-container">
+    <div class="swiper mySwiper1">
+      <div class="swiper-wrapper">
+        {% for review in student_reviews %}
+        <div class="swiper-slide">
+          <div class="slider-element">
+            <div class="slider-content">
+              "{{ review.comment }}"
+            </div>
+            <div class="d-flex">
+              <div class="slider-student">
+                <div class="d-flex align-items-center">
+                  <img src="{{ review.profile_picture.url }}" alt="slider-student-image" />
+                  <div class="slider-student-info">
+                    <div class="slider-student-name">{{ review.full_name }}</div>
+                    <div class="slider-student-job">{{ review.job_title }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex ms-auto">
+                <div class="slider-first-icon">
+                  <i class="quote fa-solid fa-quote-left"></i>
+                </div>
+                <div class="slider-second-icon">
+                  <i class="quote fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="button-prev">
+      <i class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="button-next">
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </div>
+</section>
+<section id="blog">
+  <div class="d-flex justify-content-between py-5">
+    <div class="blog-first-content">
+      <h2>Blog</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+        industry
+      </p>
+    </div>
+    <div class="blog-button">
+      <a href="{% url 'blog:blog-list' %}">hamısı</a>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row row-gap-4">
+      {% for article in articles|slice:"0:2" %}
+          <div class="col-12 col-md-6">
+            <div class="blog-main">
+              <img class="first-main-img" src="{{ article.main_image.url }}" alt="{{ article.title }}" />
+              <div class="blog-name">{{ article.category }}</div>
+              <div class="underside">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.description }}</p>
+              </div>
+              <div class="blog-button">
+                <a href="{% url 'blog:blog-detail' pk=article.pk slug=article.slug %}">
+                    <i class="fa-solid fa-angle-right"></i>
+                </a>
+            </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="graduates">
+  <div class="d-flex justify-content-between">
+    <div class="graduates-first-content">
+      <h2>Məzunlarımız</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and<br />typesetting
+        industry
+      </p>
+    </div>
+    <div class="graduates-button">
+      <a href="{% url 'promotion:graduates' %}">hamısı</a>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="graduates-main">
+      {% for alumni in alumnies|slice:"0:10" %}
+      <div class="student">
+        <img src="{{ alumni.profile_picture.url }}" alt="{{ alumni.full_name }}" />
+        <div class="student-info">
+          <div class="student-name">{{ alumni.full_name }}</div>
+          <div class="student-job">{{ alumni.job_title }}</div>
+          <a href="{{ alumni.linkedin_url}}">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock main %}

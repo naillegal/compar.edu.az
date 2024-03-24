@@ -1,0 +1,52 @@
+@media (max-width: 765px) {
+  #about-first {
+    .about-first-main-box {
+      .about-first-title {
+        bottom: -3%;
+        h1 {
+          font-size: 35px;
+        }
+      }
+      .img-overlay {
+        width: 270px;
+      }
+      &::before,
+      &::after {
+        inset: auto 270px 0 auto;
+      }
+      &::after {
+        inset: auto 0 80px auto;
+        z-index: 2;
+      }
+    }
+  }
+  #our-teachers{
+    .our-teachers-first-content{
+      h2{
+        font-size: 30px;
+      }
+    }
+  }
+  #about-counter{
+    h3{
+      text-align: center;
+    }
+    .highlights{
+      text-align: center;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media (min-width: 766px) and (max-width: 992px) {
+#about-counter{
+  h3{
+    text-align: center;
+  }
+  .highlights{
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+}
+

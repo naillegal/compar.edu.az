@@ -209,5 +209,11 @@
     <script src="{% static "js/about.js" %}"></script>
     <script src="{% static "js/events.js" %}"></script>
     <script src="{% static "js/faq.js" %}"></script>
+    <script>
+      var date = new Date();
+      var year = date.getFullYear();
+      var copyrightcontent = "© " + year + " Compar Academy. Bütün hüquqlar qorunur";
+      document.getElementById("copyright").innerHTML = copyrightcontent;
+    </script>
   </body>
 </html>
